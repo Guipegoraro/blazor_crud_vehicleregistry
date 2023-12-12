@@ -1,16 +1,15 @@
 ﻿@page "/"
 @using Models
 <PageTitle>Catálogo de veículos</PageTitle>
-
+a
 <h1>Catálogo de veiculos</h1>
-
-<table>
+<table class="table table-hover table-bordered">
     <thead>
-        <th>Id</th>
-        <th>Modelo</th>
-        <th>Ano</th>
-        <th>Preço</th>
-        <th>Data de compra</th>
+        <th scope="col">Id</th>
+        <th scope="col">Modelo</th>
+        <th scope="col">Ano</th>
+        <th scope="col">Preço</th>
+        <th scope="col">Data de compra</th>
     </thead>
     <tbody>
         @foreach (var vehicle in vehicles)
@@ -20,7 +19,7 @@
                 <td>@vehicle.Model</td>
                 <td>@vehicle.Year</td>
                 <td>R$@vehicle.Price</td>
-                <td>@vehicle.BuyingDate</td>
+                <td>@vehicle.BuyingDate.ToString("MM/dd/yyyy")</td>
             </tr>
         }
     </tbody>
