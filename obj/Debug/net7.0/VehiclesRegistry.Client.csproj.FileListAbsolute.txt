@@ -818,7 +818,6 @@ C:\Users\guipe\VSCODE\blazor_project\VehiclesRegistry.Client\obj\Debug\net7.0\st
 C:\Users\guipe\VSCODE\blazor_project\VehiclesRegistry.Client\obj\Debug\net7.0\staticwebassets.build.json
 C:\Users\guipe\VSCODE\blazor_project\VehiclesRegistry.Client\obj\Debug\net7.0\staticwebassets.development.json
 C:\Users\guipe\VSCODE\blazor_project\VehiclesRegistry.Client\obj\Debug\net7.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
-C:\Users\guipe\VSCODE\blazor_project\VehiclesRegistry.Client\obj\Debug\net7.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
 C:\Users\guipe\VSCODE\blazor_project\VehiclesRegistry.Client\obj\Debug\net7.0\scopedcss\bundle\VehiclesRegistry.Client.styles.css
 C:\Users\guipe\VSCODE\blazor_project\VehiclesRegistry.Client\obj\Debug\net7.0\scopedcss\projectbundle\VehiclesRegistry.Client.bundle.scp.css
 C:\Users\guipe\VSCODE\blazor_project\VehiclesRegistry.Client\obj\Debug\net7.0\VehiclesRegistry.Client.csproj.CopyComplete

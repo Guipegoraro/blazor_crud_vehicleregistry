@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qsOmeKWqw0G7Nfzqy79bI9basxPOl/ttWkaqSJYkh1I=",
+  "Hash": "fe6RaBauzWgbaBzT7T0Zdalv8jVRZF8mr45t1fOEnm4=",
   "Source": "VehiclesRegistry.Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -7155,23 +7155,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
-    },
-    {
-      "Identity": "C:\\Users\\guipe\\VSCODE\\blazor_project\\VehiclesRegistry.Client\\wwwroot\\sample-data\\weather.json",
-      "SourceId": "VehiclesRegistry.Client",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\guipe\\VSCODE\\blazor_project\\VehiclesRegistry.Client\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "sample-data/weather.json",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\sample-data\\weather.json"
     }
   ]
 }

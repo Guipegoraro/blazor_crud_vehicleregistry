@@ -1,9 +1,60 @@
 ﻿@page "/"
+@using Models
+<PageTitle>Catálogo de veículos</PageTitle>
 
-<PageTitle>Index</PageTitle>
+<h1>Catálogo de veiculos</h1>
 
-<h1>Hello, world!</h1>
+<table>
+    <thead>
+        <th>Id</th>
+        <th>Modelo</th>
+        <th>Ano</th>
+        <th>Preço</th>
+        <th>Data de compra</th>
+    </thead>
+    <tbody>
+        @foreach (var vehicle in vehicles)
+        {
+            <tr>
+                <td>@vehicle.Id</td>
+                <td>@vehicle.Model</td>
+                <td>@vehicle.Year</td>
+                <td>R$@vehicle.Price</td>
+                <td>@vehicle.BuyingDate</td>
+            </tr>
+        }
+    </tbody>
+</table>
 
-Welcome to your new app.
+@code {
+    private Vehicle[] vehicles = new []
+    {
+        new Vehicle()
+        {
+            Id = 1,
+            Model = "Fiesta",
+            Year = 2005,
+            Price = 12900f,
+            BuyingDate = new DateTime(2017, 2, 5)
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+        },
+        new Vehicle()
+        {
+            Id = 2,
+            Model = "Focus",
+            Year = 2008,
+            Price = 19900f,
+            BuyingDate = new DateTime(2015, 2, 5)
+
+        },
+        new Vehicle()
+        {
+            Id = 1,
+            Model = "Ka",
+            Year = 2002,
+            Price = 12200f,
+            BuyingDate = new DateTime(2008, 2, 5)
+
+        }
+    };
+}
