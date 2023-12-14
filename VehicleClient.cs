@@ -64,6 +64,10 @@ public static class VehicleClient
 
     }
 
-
+        public static void DeleteVehicle(int id)
+    {
+        Vehicle vehicle = GetVehicle(id);
+        vehicles.Remove(vehicle);
+    }
 
 }

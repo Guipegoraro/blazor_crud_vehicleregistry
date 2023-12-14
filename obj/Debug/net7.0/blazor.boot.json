@@ -198,13 +198,13 @@
       "mscorlib.dll": "sha256-t1RT9mknsQ54H+sVa1vtMhjv3D8ZjiAGoLzHvuIObPw=",
       "netstandard.dll": "sha256-5SHKPh1PcuJjq4lIo7ymdIyhb9d3++oMAjr46auhUSc=",
       "System.Private.CoreLib.dll": "sha256-eH+XIsCUG5oZ0k8AIzNtRLTCLiV\/8Zv0RFCPMsIkdYY=",
-      "VehiclesRegistry.Client.dll": "sha256-UNorslanUZnOL\/Fyfyh4Oa2hHa2gYBCt4bGS0KHoNBo="
+      "VehiclesRegistry.Client.dll": "sha256-5ERIx1NvJm9d1p6snp\/4GifOOhHGNZriRuKraMv4lf8="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "VehiclesRegistry.Client.pdb": "sha256-zG2arktwvq+yrtOvVSn84637Rttec0vqxADLDTUID3k="
+      "VehiclesRegistry.Client.pdb": "sha256-iVExDim9YM75VKmchjXpVeBZtCU\/h0i0Ewaak\/MhDkY="
     },
     "runtime": {
       "dotnet.7.0.9.tqwdbfu7x1.js": "sha256-dUIY5Mz0ozZWqtTfBb7ArJKbdh5IIp8BXeq6UjK4u\/c=",

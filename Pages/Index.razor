@@ -17,6 +17,9 @@
 }
 else
 {
+    <DeleteGame Vehicle="@currentVehicle" OnClose="@OnDeleteModalClose">
+
+    </DeleteGame>
     <table class="table table-hover table-bordered">
         <thead class="table-dark">
             <th scope="col">Id</th>
@@ -38,7 +41,12 @@ else
                     <td>@vehicle.BodyType</td>
                     <td>@vehicle.BuyingDate.ToString("MM/dd/yyyy")</td>
                     <td><button class="btn btn-primary" @onclick="(() => EditVehicle(vehicle.Id))">
-                    <i class="oi oi-pencil"></i></button></td>
+                    <i class="oi oi-pencil"></i></button>
+                    <button class="btn btn-danger" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#deleteModal"
+                    @onclick="(() => currentVehicle = vehicle)">
+                    <i class="oi oi-x"></i></button></td>
                 </tr>
             }
         </tbody>
@@ -48,7 +56,7 @@ else
 
 @code {
     private Vehicle[]? vehicles;
-
+    private Vehicle? currentVehicle;
     protected override void OnInitialized()
     {
         vehicles = VehicleClient.GetVehicles();
@@ -61,5 +69,13 @@ else
     private void EditVehicle(int id)
     {
         NavigationManager.NavigateTo($"/vehicle/{id}");
+    }
+    private void OnDeleteModalClose(bool accepted)
+    {
+        if(accepted)
+        {
+            VehicleClient.DeleteVehicle(currentVehicle!.Id);
+            vehicles = VehicleClient.GetVehicles();
+        }
     }
 }
