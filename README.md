@@ -1,0 +1,1 @@
+Simple CRUD made to demonstrate my ability to use and learn more about Blazor
