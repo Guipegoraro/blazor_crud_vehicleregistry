@@ -26,7 +26,7 @@ public static class VehicleClient
         },
         new Vehicle()
         {
-            Id = 1,
+            Id = 3,
             Model = "Ka",
             Year = 2002,
             Price = 12200f,
@@ -38,4 +38,13 @@ public static class VehicleClient
     {
         return vehicles.ToArray();
     }
+
+    public static void AddVehicle(Vehicle vehicle)
+    {
+        vehicle.Id = vehicles.Max(vehicle => vehicle.Id) + 1;
+        vehicles.Add(vehicle);
+    }
+
+
+
 }
