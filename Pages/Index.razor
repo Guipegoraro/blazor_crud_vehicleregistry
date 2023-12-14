@@ -14,29 +14,36 @@
 @if (vehicles is null)
 {
     <p><em>Carregando...</em></p>
-} else{
-<table class="table table-hover table-bordered">
-    <thead class="table-dark">
-        <th scope="col">Id</th>
-        <th scope="col">Modelo</th>
-        <th scope="col">Ano</th>
-        <th scope="col">Preço</th>
-        <th scope="col">Data de compra</th>
-    </thead>
-    <tbody>
-        @foreach (var vehicle in vehicles)
-        {
-            <tr>
-                <td>@vehicle.Id</td>
-                <td>@vehicle.Model</td>
-                <td>@vehicle.Year</td>
-                <td>R$@vehicle.Price</td>
-                <td>@vehicle.BuyingDate.ToString("MM/dd/yyyy")</td>
-            </tr>
-        }
-    </tbody>
-</table>
-    
+}
+else
+{
+    <table class="table table-hover table-bordered">
+        <thead class="table-dark">
+            <th scope="col">Id</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Ano</th>
+            <th scope="col">Preço</th>
+            <th scope="col">Carroceria</th>
+            <th scope="col">Data de compra</th>
+            <th></th>
+        </thead>
+        <tbody>
+            @foreach (var vehicle in vehicles)
+            {
+                <tr>
+                    <td>@vehicle.Id</td>
+                    <td>@vehicle.Model</td>
+                    <td>@vehicle.Year</td>
+                    <td>R$@vehicle.Price</td>
+                    <td>@vehicle.BodyType</td>
+                    <td>@vehicle.BuyingDate.ToString("MM/dd/yyyy")</td>
+                    <td><button class="btn btn-primary" @onclick="(() => EditVehicle(vehicle.Id))">
+                    <i class="oi oi-pencil"></i></button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
 }
 
 @code {
@@ -50,5 +57,9 @@
     private void CreateVehicle()
     {
         NavigationManager.NavigateTo("/vehicle");
+    }
+    private void EditVehicle(int id)
+    {
+        NavigationManager.NavigateTo($"/vehicle/{id}");
     }
 }

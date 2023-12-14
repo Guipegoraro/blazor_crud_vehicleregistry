@@ -1,13 +1,20 @@
 ﻿@page "/vehicle"
+@page "/vehicle/{id:int}"
 @using Models
 @inject NavigationManager NavigationManager
 
-<PageTitle>Novo Veículo</PageTitle>
+<PageTitle>@title</PageTitle>
 <h1>Catálogo de veículos</h1>
-<h3>Novo veículo</h3>
+<h3>@title</h3>
+@if (vehicle is null)
+{
+    <p><em>Carregando...</em></p>
+} else{
 <div class="row">
     <div class="col-sm-4">
-        <EditForm Model="@vehicle" OnSubmit="HandleSubmit">
+        <EditForm Model="@vehicle" OnValidSubmit="HandleSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
             <div class="mb-3">
                 <label for="model" class="form-label">Modelo:</label>
                 <InputText id="model" @bind-Value="vehicle.Model" class="form-control"></InputText>
@@ -21,29 +28,77 @@
                 <InputNumber id="price" @bind-Value="vehicle.Price" class="form-control"></InputNumber>
             </div>
             <div class="mb-3">
+                <label for="bodyType" class="form-label">Tipo de carroceria:</label>
+                <InputSelect id="bodyType" @bind-Value="vehicle.BodyType" class="form-select">
+                    <option Value="">Selecione Carroceria</option>
+                    <option Value="Hatch">Hatch</option>
+                    <option Value="Sedan">Sedan</option>
+                    <option Value="Perua">Perua</option>
+                    <option Value="Coupé">Coupé</option>
+                    <option Value="SUV">SUV</option>
+                    <option Value="Picape">Picape</option>
+                </InputSelect>
+            </div>
+
+            <div class="mb-3">
                 <label for="buyingDate" class="form-label">Data de compra:</label>
                 <InputDate id="buyingDate" @bind-Value="vehicle.BuyingDate" class="form-control"></InputDate>
             </div>
             <button type="submit" class="btn btn-primary">Salvar</button>
-            <button type="button" class="btn btn-primary" @onclick="Cancel" >Cancelar</button>
+            <button type="button" class="btn btn-secondary" @onclick="Cancel">Cancelar</button>
         </EditForm>
     </div>
 </div>
+}
 @code {
-    private Vehicle vehicle = new() 
-    {
-        Id = 0,
-        Model = string.Empty,
-        Year = 0,
-        Price = 0f,
-        BuyingDate = DateTime.Now
+    [Parameter]
+    public int? Id { get; set; }
 
-        
-    };
+
+    private Vehicle? vehicle;
+
+    private string title = string.Empty;
+
+    protected override void OnParametersSet()
+    {
+        if (Id is not null)
+        {
+            Vehicle foundVehicle = VehicleClient.GetVehicle(Id.Value);
+            vehicle = new()
+                {
+                    Id = foundVehicle.Id,
+                    Model = foundVehicle.Model,
+                    Year = foundVehicle.Year,
+                    Price = foundVehicle.Price,
+                    BodyType = foundVehicle.BodyType,
+                    BuyingDate = foundVehicle.BuyingDate
+                };
+                title = $"Editando {vehicle.Model}";
+        }
+        else
+        {
+            vehicle = new()
+                {
+                    Model = string.Empty,
+                    BodyType = string.Empty,
+                    Year = 0,
+                    Price = 0f,
+                    BuyingDate = DateTime.Now
+                };
+            title = "Novo veículo";
+        }
+    }
 
     private void HandleSubmit()
     {
+        if (vehicle!.Id == 0)
+        {
         VehicleClient.AddVehicle(vehicle);
+        } else 
+        {
+            VehicleClient.UpdateVehicle(vehicle);
+        }
+        
         NavigationManager.NavigateTo("/");
     }
     private void Cancel()

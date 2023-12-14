@@ -12,15 +12,17 @@ public static class VehicleClient
             Model = "Fiesta",
             Year = 2005,
             Price = 12900f,
+            BodyType = "Hatch",
             BuyingDate = new DateTime(2017, 2, 5)
 
         },
         new Vehicle()
         {
             Id = 2,
-            Model = "Focus",
+            Model = "Fusion",
             Year = 2008,
-            Price = 19900f,
+            Price = 33900f,
+            BodyType = "Sedan",
             BuyingDate = new DateTime(2015, 2, 5)
 
         },
@@ -30,6 +32,7 @@ public static class VehicleClient
             Model = "Ka",
             Year = 2002,
             Price = 12200f,
+            BodyType = "Hatch",
             BuyingDate = new DateTime(2008, 2, 5)
 
         }
@@ -43,6 +46,22 @@ public static class VehicleClient
     {
         vehicle.Id = vehicles.Max(vehicle => vehicle.Id) + 1;
         vehicles.Add(vehicle);
+    }
+
+    public static Vehicle GetVehicle(int id)
+    {
+        return vehicles.Find(vehicle => vehicle.Id == id) ?? throw new Exception("Veículo não encontrado!");
+    }
+
+    public static void UpdateVehicle(Vehicle updatedVehicle)
+    {
+        Vehicle existingVehicle = GetVehicle(updatedVehicle.Id);
+        existingVehicle.Model = updatedVehicle.Model;
+        existingVehicle.Year = updatedVehicle.Year;
+        existingVehicle.Price = updatedVehicle.Price;
+        existingVehicle.BodyType = updatedVehicle.BodyType;
+        existingVehicle.BuyingDate = updatedVehicle.BuyingDate;
+
     }
 
 
